@@ -3,19 +3,31 @@
 #
 #
 
+import sys
 
-f1 = open('data/group.txt', 'r')
+def word_count(file_name):
+    f1 = open(file_name, 'r')
 
-l1 = []
-x = 0
+    l1 = []
+    x = 0
 
-for line in f1:
-    l1 = line.split()
+    for line in f1:
+        l1 = line.split()
 
-    x = len(l1) + x
+        x = len(l1) + x
+
+    return x
+
+    f1.close
 
 
-print 'word count', x
+def main():
+    print 'command line args: ', sys.argv[1]
 
-f1.close
+    result = word_count(sys.argv[1])
+    print 'word count: ', result
+
+
+if __name__ == '__main__':
+    main()
 
